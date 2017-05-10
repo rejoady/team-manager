@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css" />
+    <link rel="stylesheet" href="/bootstrap/css/docs.css" />
+</head>
+<body>
+    <!-- navbar-inverse 该类反转色彩，默认导航是白底黑字，翻转后黑底白字 -->
+    <!-- navbar-fixed-top 需要在body上设置padding，在电脑屏幕时，固定在浏览器顶部，不随滚动条滚动 -->
+    <!-- navbar-static-top 不需要设置padding，随滚动条滚动 -->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#">轩寤</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="">
+                            <a href="/">系统首页</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">风雷刀谷</a>
+                        </li>
+                        <li class="">
+                            <a href="#">上阳宫</a>
+                        </li>
+                        <li>
+                            <a href="#">开荒团</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hero-unit">
+            <h3 th:text="'【'+${activity.teamName}+'】'+${activity.name}">团本报名</h3>
+            <p></p>
+            <p class="text-error">团长ID：<span th:text="${activity.masterId}"></span></p>
+            <p></p>
+            <p th:text="'说 明：'+${activity.remark}"></p>
+            <p></p>
+            <small class="muted">请在下方输入想要参与本次活动的角色信息报名。</small>
+        </div>
+        <form class="form-horizontal" action="/signUp" method="post">
+            <fieldset>
+                <input type="hidden" name="activityId" th:value="${activity.id}"/>
+                <div class="control-group">
+                    <label class="control-label" for="roleId">游戏ID</label>
+                    <div class="controls">
+                        <input type="text" name="roleId" id="roleId" placeholder="输入游戏ID..."/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="roleType">角色心法</label>
+                    <div class="controls">
+                        <select name="roleType" id="roleType">
+                            <option></option>
+                            <option value="AX">天策-傲雪</option>
+                            <option value="TL">天策-铁牢</option>
+                            <option value="ZX">纯阳-紫霞</option>
+                            <option value="TX">纯阳-太虚</option>
+                            <option value="TL01">唐门-天罗</option>
+                            <option value="JY">唐门-惊羽</option>
+                            <option value="HJ">万花-花间</option>
+                            <option value="LJ">万花-离经</option>
+                            <option value="YS">七秀-云裳</option>
+                            <option value="BX">七秀-冰心</option>
+                            <option value="MW">长歌-莫问</option>
+                            <option value="XZ">长歌-相知</option>
+                            <option value="DJ">五毒-毒经</option>
+                            <option value="BT">五毒-补天</option>
+                            <option value="YJ">少林-易经</option>
+                            <option value="XS">少林-洗髓</option>
+                            <option value="MZ">明教-明尊</option>
+                            <option value="FY">明教-焚影</option>
+                            <option value="FS">苍云-分山</option>
+                            <option value="TG">苍云-铁骨</option>
+                            <option value="CJ">藏剑-藏剑</option>
+                            <option value="GB">丐帮-丐帮</option>
+                            <option value="BD">霸刀-霸刀</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">是否双修</label>
+                    <div class="controls">
+                        <label class="radio inline">
+                            <input type="radio" name="isDub" value="1"/> 是
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="isDub" value="0"/> 否
+                        </label>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="score">游戏ID</label>
+                    <div class="controls">
+                        <input type="text" name="score" id="score" placeholder="装备分数,如：18900"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn">报名</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <div th:each="error:${errors}">
+            <span th:text="${error}"></span>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/bootstrap/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
