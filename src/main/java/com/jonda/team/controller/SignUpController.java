@@ -5,6 +5,7 @@ import com.jonda.team.repository.ActivityRepository;
 import com.jonda.team.repository.ConfigRepository;
 import com.jonda.team.repository.SignUpRepository;
 import com.jonda.team.repository.entity.ActivityEntity;
+import com.jonda.team.repository.entity.ConfigurationEntity;
 import com.jonda.team.repository.entity.SignUpEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +39,7 @@ public class SignUpController {
         if (StringUtils.isBlank(activityId)) {
             List<ActivityEntity> activities = activityRepository.queryActivity();
             activity = activities.get(0);
-            activityId = activity.getId();
+            activityId = activity.getId().toString();
         } else {
             activity = activityRepository.getActivityById(activityId);
         }
@@ -94,11 +96,7 @@ public class SignUpController {
             return "signUp/signUp";
         }
         // 查询配置的该心法需要几人
-        String counts = configRepository.getRoleCount(Integer.valueOf(activityId), roleType);
-        Integer count = 0;
-        if (StringUtils.isNotBlank(counts)) {
-            count = Integer.valueOf(counts);
-        }
+        Integer count = this.getRoleNeedCount(activityId, roleType);
         // 查询当前已经报名的人数
         int hcount = signUpRepository.getActivityRoleCount(Integer.valueOf(activityId), roleType);
         // count <= 0 表示不需要该心法， count <= hcount表示报名人数已经大于当前需要的人
@@ -119,6 +117,23 @@ public class SignUpController {
         entity.setScore(scoreNum);
         signUpRepository.addSignUp(entity);
         return "signUp/success";
+    }
+
+    private Integer getRoleNeedCount(String activityId, String roleCode) {
+        ConfigurationEntity configurationEntity = configRepository.getActivityConfig(Integer.valueOf(activityId));
+        try {
+            Field field = ConfigurationEntity.class.getDeclaredField(roleCode);
+            field.setAccessible(true);
+            Object value = field.get(configurationEntity);
+            if (value != null && StringUtils.isNotBlank(value.toString())){
+                return Integer.valueOf(value.toString());
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 }

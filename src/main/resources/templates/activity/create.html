@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css" />
     <link rel="stylesheet" href="/bootstrap/css/docs.css" />
+    <link rel="stylesheet" href="/datetime/css/bootstrap-datetimepicker.min.css" />
 </head>
 <body>
     <!-- navbar-inverse 该类反转色彩，默认导航是白底黑字，翻转后黑底白字 -->
@@ -46,37 +47,37 @@
                 <div class="control-group">
                     <label class="control-label" for="name">活动名称</label>
                     <div class="controls">
-                        <input type="text" name="roleId" id="name" placeholder="输入活动名称..."/>
+                        <input type="text" name="name" id="name" placeholder="输入活动名称..."/>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="masterId">团长ID</label>
                     <div class="controls">
-                        <input type="text" name="roleId" id="masterId" placeholder="输入团长游戏ID..."/>
+                        <input type="text" name="masterId" id="masterId" placeholder="输入团长游戏ID..."/>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="teamName">团队名称</label>
                     <div class="controls">
-                        <input type="text" name="roleId" id="teamName" placeholder="输入团队招牌名称..."/>
+                        <input type="text" name="teamName" id="teamName" placeholder="输入团队招牌名称..."/>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="start">活动开始时间</label>
                     <div class="controls">
-                        <input type="text" name="roleId" id="start" placeholder="选择活动开始时间..."/>
+                        <input type="text" name="start" id="start" readonly="readonly" placeholder="选择活动开始时间..."/>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="end">活动结束时间</label>
                     <div class="controls">
-                        <input type="text" name="roleId" id="end" placeholder="选择活动结束时间..."/>
+                        <input type="text" name="end" id="end" readonly="readonly" placeholder="选择活动结束时间..."/>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="remark">活动说明</label>
                     <div class="controls">
-                        <input type="text" name="roleId" id="remark" placeholder="选择活动结束时间..."/>
+                        <textarea rows="3" name="remark" id="remark"></textarea>
                     </div>
                 </div>
                 <div class="control-group">
@@ -92,12 +93,12 @@
                                 <td>唐门-惊羽</td>
                             </tr>
                             <tr>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
+                                <td><input class="input-mini" type="text" name="AX" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="TL" th:value="0"/></td>
+                                <td><input class="input-mini" type="text" name="ZX" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="TX" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="TL01" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="JY" th:value="1"/></td>
                             </tr>
                             <tr>
                                 <td>万花-花间</td>
@@ -108,12 +109,12 @@
                                 <td>长歌-相知</td>
                             </tr>
                             <tr>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
+                                <td><input class="input-mini" type="text" name="HJ" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="LJ" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="YS" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="BX" th:value="2"/></td>
+                                <td><input class="input-mini" type="text" name="MW" th:value="3"/></td>
+                                <td><input class="input-mini" type="text" name="XZ" th:value="0"/></td>
                             </tr>
                             <tr>
                                 <td>五毒-毒经</td>
@@ -124,12 +125,12 @@
                                 <td>明教-焚影</td>
                             </tr>
                             <tr>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
+                                <td><input class="input-mini" type="text" name="DJ" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="BT" th:value="2"/></td>
+                                <td><input class="input-mini" type="text" name="YJ" th:value="2"/></td>
+                                <td><input class="input-mini" type="text" name="XS" th:value="0"/></td>
+                                <td><input class="input-mini" type="text" name="MZ" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="FY" th:value="0"/></td>
                             </tr>
                             <tr>
                                 <td>苍云-分山</td>
@@ -140,11 +141,11 @@
                                 <td>　</td>
                             </tr>
                             <tr>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
-                                <td><input class="input-mini" type="text" name="roleId"/></td>
+                                <td><input class="input-mini" type="text" name="FS" th:value="1"/></td>
+                                <td><input class="input-mini" type="text" name="TG" th:value="0"/></td>
+                                <td><input class="input-mini" type="text" name="CJ" th:value="2"/></td>
+                                <td><input class="input-mini" type="text" name="GB" th:value="2"/></td>
+                                <td><input class="input-mini" type="text" name="BD" th:value="3"/></td>
                                 <td>　</td>
                             </tr>
                         </table>
@@ -159,7 +160,27 @@
         </div>
     </div>
 
+
     <script type="text/javascript" src="/bootstrap/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/datetime/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="/datetime/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+    <script type="text/javascript">
+        $('#start').datetimepicker({
+            language:  'zh-CN',
+            weekStart: 0,
+            todayBtn:  1,
+            autoclose: 1,
+            showMeridian: 1
+        });
+        $('#end').datetimepicker({
+            language:  'zh-CN',
+            weekStart: 0,
+            todayBtn:  1,
+            autoclose: 1,
+            showMeridian: 1
+        });
+    </script>
 </body>
 </html>

@@ -1,7 +1,9 @@
 package com.jonda.team.controller;
 
+import com.jonda.team.controller.request.CreateActivityRequest;
 import com.jonda.team.repository.ActivityRepository;
 import com.jonda.team.repository.entity.ActivityEntity;
+import com.jonda.team.service.ActivityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,9 @@ public class ActivityController {
     @Resource
     private ActivityRepository activityRepository;
 
+    @Resource
+    private ActivityService activityService;
+
     @RequestMapping("/index")
     public String index(Model model) {
         List<ActivityEntity> activities = activityRepository.queryActivity();
@@ -32,7 +37,8 @@ public class ActivityController {
     }
 
     @RequestMapping(value = "/create",method = RequestMethod.POST)
-    public String doCreate() {
+    public String doCreate(CreateActivityRequest request, Model model) {
+        activityService.createActivity(request);
         return "activity/success";
     }
 }

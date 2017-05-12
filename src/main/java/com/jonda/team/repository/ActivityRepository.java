@@ -2,10 +2,9 @@ package com.jonda.team.repository;
 
 import com.jonda.team.repository.entity.ActivityEntity;
 import com.jonda.team.repository.entity.ConfigurationEntity;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
+import com.jonda.team.repository.entity.SignUpEntity;
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.StatementType;
 
 import java.util.List;
 
@@ -23,4 +22,10 @@ public interface ActivityRepository {
     @Select("select * from activity where id=#{activityId}")
     @ResultMap("activityResultMap")
     public ActivityEntity getActivityById(@Param("activityId") String activityId);
+
+    @Insert("insert into activity(name, start_time, end_time, remark, team_name, master_id) " +
+            "values (#{name},#{start}, #{end}, #{remark}, #{teamName}, #{masterId})")
+    @SelectKey(before=false,keyProperty="id",resultType=Integer.class,statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
+    public void saveActivity(ActivityEntity entity);
+
 }
