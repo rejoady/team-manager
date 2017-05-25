@@ -53,6 +53,7 @@
             <thead>
             <tr>
                 <th>　</th>
+				<th>群昵称</th>
                 <th>角色ID</th>
                 <th>职业</th>
                 <th>心法</th>
@@ -63,6 +64,7 @@
             <tbody>
             <tr  th:each="signer,iterStat:${signs}">
                 <td th:text="${iterStat.index + 1}"></td>
+				<td th:text="${signer.nickName}">Onions</td>
                 <td th:text="${signer.roleId}">Onions</td>
                 <td th:text="${signer.roleType}">test@test.com.cn</td>
                 <td th:text="${signer.roleName}">yes</td>
