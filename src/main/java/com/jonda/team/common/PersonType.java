@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public enum PersonType {
 
-    AX("TC","天策","傲雪"),
+    AX("TC","天策","傲血"),
     TL("TC","天策", "铁牢"),
     ZX("CY","纯阳","紫霞"),
     TX("CY","纯阳","太虚"),

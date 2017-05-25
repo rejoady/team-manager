@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>轩寤-剑三固定团活动报名系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css" />
@@ -56,6 +56,14 @@
                     <label class="control-label" for="roleId">游戏ID</label>
                     <div class="controls">
                         <input type="text" name="roleId" id="roleId" placeholder="输入游戏ID..."/>
+                        <span class="help-inline">请输入参与本次活动的游戏角色名称</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="nickName">群昵称</label>
+                    <div class="controls">
+                        <input type="text" name="nickName" id="nickName" placeholder="输入群昵称..."/>
+                        <span class="help-inline">请输入您的群昵称，如果不是QQ群成员，告诉团长怎么联系你</span>
                     </div>
                 </div>
                 <div class="control-group">
@@ -63,7 +71,7 @@
                     <div class="controls">
                         <select name="roleType" id="roleType">
                             <option></option>
-                            <option value="AX">天策-傲雪</option>
+                            <option value="AX">天策-傲血</option>
                             <option value="TL">天策-铁牢</option>
                             <option value="ZX">纯阳-紫霞</option>
                             <option value="TX">纯阳-太虚</option>
@@ -87,6 +95,7 @@
                             <option value="GB">丐帮-丐帮</option>
                             <option value="BD">霸刀-霸刀</option>
                         </select>
+                        <span class="help-inline">请选择参与本次活动的游戏角色心法</span>
                     </div>
                 </div>
                 <div class="control-group">
@@ -101,9 +110,10 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="score">游戏ID</label>
+                    <label class="control-label" for="score">装备分数</label>
                     <div class="controls">
                         <input type="text" name="score" id="score" placeholder="装备分数,如：18900"/>
+                        <span class="help-inline">请输入参与本次活动的游戏角色装备分数，要求不低于18800</span>
                     </div>
                 </div>
                 <div class="control-group">

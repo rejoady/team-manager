@@ -12,6 +12,8 @@ public class SignUpEntity {
     private int activityId;
     // 角色ID
     private String roleId;
+    // 群昵称
+    private String nickName;
     // 职业
     private String type;
     // 心法
@@ -37,6 +39,14 @@ public class SignUpEntity {
 
     public void setActivityId(int activityId) {
         this.activityId = activityId;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public String getRoleId() {

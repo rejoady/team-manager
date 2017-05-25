@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>轩寤-剑三固定团活动报名系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css" />
@@ -56,7 +56,8 @@
                 <th>角色ID</th>
                 <th>职业</th>
                 <th>心法</th>
-                <th>是否双休</th>
+                <th>是否双修</th>
+                <th>装分</th>
             </tr>
             </thead>
             <tbody>
@@ -66,6 +67,7 @@
                 <td th:text="${signer.roleType}">test@test.com.cn</td>
                 <td th:text="${signer.roleName}">yes</td>
                 <td th:text="${signer.isDouble > 0}? '是' : '否'">yes</td>
+                <td th:text="${signer.score}">yes</td>
             </tr>
             </tbody>
         </table>

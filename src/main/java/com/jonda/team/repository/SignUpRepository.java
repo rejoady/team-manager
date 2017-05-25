@@ -11,7 +11,8 @@ import java.util.List;
 @Mapper
 public interface SignUpRepository {
 
-    @Insert("insert into sign_up(activity_id, roleId, roleType, type, roleName, dub, score) values (#{activityId},#{roleId}, #{roleType}, #{type}, #{roleName}, #{isDouble}, #{score})")
+    @Insert("insert into sign_up(activity_id, nick_name, roleId, roleType, type, roleName, dub, score) " +
+            "values (#{activityId}, #{nickName}, #{roleId}, #{roleType}, #{type}, #{roleName}, #{isDouble}, #{score})")
     public void addSignUp(SignUpEntity entity);
 
     @Select("select count(1) from sign_up " +
