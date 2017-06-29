@@ -13,7 +13,7 @@ spring:
       force: true
   datasource:
     name: cashier-datasource-mysql
-    url: jdbc:mariadb://115.28.138.181:3306/team-manager?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mariadb://127.0.0.1:3306/team-manager?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 19860717Xst
     type: com.alibaba.druid.pool.DruidDataSource

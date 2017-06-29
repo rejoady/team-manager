@@ -23,8 +23,8 @@ public interface ActivityRepository {
     @ResultMap("activityResultMap")
     public ActivityEntity getActivityById(@Param("activityId") String activityId);
 
-    @Insert("insert into activity(name, start_time, end_time, remark, team_name, master_id) " +
-            "values (#{name},#{start}, #{end}, #{remark}, #{teamName}, #{masterId})")
+    @Insert("insert into activity(name, min_score, start_time, end_time, remark, team_name, master_id) " +
+            "values (#{name},#{minScore}, #{start}, #{end}, #{remark}, #{teamName}, #{masterId})")
     @SelectKey(before=false,keyProperty="id",resultType=Integer.class,statementType= StatementType.STATEMENT,statement="SELECT LAST_INSERT_ID() AS id")
     public void saveActivity(ActivityEntity entity);
 

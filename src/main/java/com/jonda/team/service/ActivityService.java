@@ -26,6 +26,7 @@ public class ActivityService {
         activity.setName(request.getName());
         activity.setMasterId(request.getMasterId());
         activity.setTeamName(request.getTeamName());
+        activity.setMinScore(request.getMinScore());
         activity.setRemark(request.getRemark());
         activity.setStart(request.getStart());
         activity.setEnd(request.getEnd());

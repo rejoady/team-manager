@@ -9,6 +9,7 @@
         <result column="name" property="name"/>
         <result column="team_name" property="teamName"/>
         <result column="master_id" property="masterId"/>
+        <result column="min_score" property="minScore"/>
         <result column="start_time" property="start" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
         <result column="end_time" property="end" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
         <result column="remark" property="remark"/>

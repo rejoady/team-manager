@@ -26,13 +26,7 @@
                             <a href="/">系统首页</a>
                         </li>
                         <li class="active">
-                            <a href="/activity/index">风雷刀谷</a>
-                        </li>
-                        <li class="">
-                            <a href="#">上阳宫</a>
-                        </li>
-                        <li>
-                            <a href="#">开荒团</a>
+                            <a href="/activity/index">活动报名</a>
                         </li>
                     </ul>
                 </div>
@@ -53,6 +47,7 @@
                 <th>活动名称</th>
                 <th>开始时间</th>
                 <th>结束时间</th>
+                <th>最低装分</th>
                 <th>　</th>
             </tr>
             </thead>
@@ -61,6 +56,7 @@
                 <td th:text="${activity.name}">Onions</td>
                 <td th:text="${#dates.format(activity.start, 'yyyy-MM-dd HH:mm')}">test@test.com.cn</td>
                 <td th:text="${#dates.format(activity.end, 'yyyy-MM-dd HH:mm')}">yes</td>
+                <td th:text="${activity.minScore}">Onions</td>
                 <th>
                     <a th:href="@{'/signUp'(activityId=${activity.id})}">前往报名</a>　
                     <a th:href="@{'/getSigners'(activityId=${activity.id})}">查看人员</a>

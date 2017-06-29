@@ -16,6 +16,8 @@ public class CreateActivityRequest {
     private String masterId;
     // 团队名称
     private String teamName;
+    // 最低装分
+    private Integer minScore;
     // 活动开始时间
     private String start;
     // 活动结束时间
@@ -70,6 +72,14 @@ public class CreateActivityRequest {
 
     public void setTeamName(String teamName) {
         this.teamName = teamName;
+    }
+
+    public Integer getMinScore() {
+        return minScore;
+    }
+
+    public void setMinScore(Integer minScore) {
+        this.minScore = minScore;
     }
 
     public Date getStart() {

@@ -59,7 +59,7 @@ public class SignUpController {
     }
 
     @RequestMapping(value = "/signUp", method = RequestMethod.POST)
-    public String doSignUp(String activityId, String roleId, String roleType, String isDub, String score, Model model) {
+    public String doSignUp(String activityId, String roleId, String nickName, String roleType, String isDub, String score, Model model) {
         ActivityEntity activity = activityRepository.getActivityById(activityId);
         int signUpCount = signUpRepository.getActivitySignUpCount(Integer.valueOf(activityId));
         activity.setName(activity.getName() + "----已经报名人数："+signUpCount);
@@ -89,8 +89,8 @@ public class SignUpController {
             scoreNum = Integer.valueOf(score);
         } catch (Exception ex) {
         }
-
-        if (scoreNum < 18800) {
+        Integer minScore = activity.getMinScore();
+        if (minScore != null && minScore.intValue() > 0 && scoreNum < minScore) {
             errors.add("装备分数格式不正确或者装分太低");
             model.addAttribute("errors", errors);
             return "signUp/signUp";
@@ -108,6 +108,7 @@ public class SignUpController {
 
         SignUpEntity entity = new SignUpEntity();
         entity.setRoleId(roleId);
+        entity.setNickName(nickName);
         PersonType personType = PersonType.getPersonTypeByCode(roleType);
         entity.setActivityId(Integer.valueOf(activityId));
         entity.setType(personType.getName());

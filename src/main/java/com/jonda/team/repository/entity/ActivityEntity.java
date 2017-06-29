@@ -15,6 +15,8 @@ public class ActivityEntity {
 
     private String teamName;
 
+    private Integer minScore;
+
     private Date start;
 
     private Date end;
@@ -51,6 +53,14 @@ public class ActivityEntity {
 
     public void setTeamName(String teamName) {
         this.teamName = teamName;
+    }
+
+    public Integer getMinScore() {
+        return minScore;
+    }
+
+    public void setMinScore(Integer minScore) {
+        this.minScore = minScore;
     }
 
     public Date getStart() {
